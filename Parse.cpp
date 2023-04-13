@@ -43,14 +43,14 @@ void Parse::parseLine()
         //If Z == 0 check flag('QuilOutFlag'are we out) and move in 10
         //  move  in 10 clicks and set 'QuilOutFlag' to false
         //Add Mov XY for speed,.. or you can use line, 
-        switch (isWriting) {
-        case 1:
-            isWriting = RoboTestDemo.penUp();
-            break;
-        case 0:
-            isWriting = RoboTestDemo.penDown();
-            break;
-        }
+        isWriting = RoboTestDemo.penUp();
+
+        std::cout << "G0" << GCODE << " X" << std::setw(7) << X << " Y" << std::setw(7) << Y
+            << " I" << std::setw(7) << I << " J" << std::setw(7) << J << std::endl;
+        RoboTestDemo.Moveto('1', targetpt, Centertpt); //G01
+        //call to line method
+
+        isWriting = RoboTestDemo.penDown();
         break;
 
     case '1': //call line class and populate the Gcommand in the class
