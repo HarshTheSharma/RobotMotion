@@ -13,4 +13,3 @@ bool MoveToPoint::MoveToXY(PointXY XYPointNew)
     Didit = RoboMotion.MotoMoveServo('D', int(CurrentAngs.Ang2 / .12));
     return true;
 }
-

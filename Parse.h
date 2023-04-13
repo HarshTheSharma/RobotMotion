@@ -17,6 +17,13 @@ private:
     std::string CommandLine;               //Store individual command lines.
     RobotMotion RoboTestDemo;
     PointXY Centertpt, targetpt;       //Added to allow passing to existing moveto cmd
+    PointXY WorkingPtMv = { 0,0 };
+    PointXY Current = { 0,0 };
+    PointXY WorkingPt = { 0,0 };
+    PointXY WorkingCur = { 0,0 };
+    bool isWriting = true;
+
+        
 
 public:
     Parse(std::string nameFile) { GCODEin.open(nameFile); }

@@ -17,7 +17,17 @@ private:
     MoveToPoint   Rhino;         //Was in our main last week
 public:   //       0123            Target           Center for arcs+
     void Moveto(char Cmd, PointXY TargPos, PointXY CentPos);
-    bool MotoMoveServoFout();
-    bool MotoMoveServoFin();
+
+    bool penUp() {
+        RhinoSpecific RoboMotion;
+        bool Didit = RoboMotion.MotoMoveServo('F', -20);
+        return 0;
+    }
+
+    bool penDown() {
+        RhinoSpecific RoboMotion;
+        bool Didit = RoboMotion.MotoMoveServo('F', 20);
+        return 1;
+    }
 };
 #endif

@@ -82,14 +82,3 @@ void RobotMotion::Moveto(char Cmd, PointXY TargPos, PointXY CentPos)
     CurrPos.X = TargPos.X;
     CurrPos.Y = TargPos.Y;
 }
-
-bool RobotMotion::MotoMoveServoFout()
-{
-    RoboMotion.MotoMoveServo('F', -20);
-    return true;
-}
-
-bool RobotMotion::MotoMoveServoFin()
-{
-    RoboMotion.MotoMoveServo('F', 20);
-    return true;

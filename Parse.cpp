@@ -43,19 +43,14 @@ void Parse::parseLine()
         //If Z == 0 check flag('QuilOutFlag'are we out) and move in 10
         //  move  in 10 clicks and set 'QuilOutFlag' to false
         //Add Mov XY for speed,.. or you can use line, 
-
-        RoboTestDemo.MotoMoveServoFout();
-        std::cout << "Line:" << std::fixed << std::showpoint << std::setprecision(1) //FINAL STEP
-            << setw(7) << right << X
-            << " " << setw(7) << right << Y << std::endl;
-        WorkingPtMv.X = X;
-        WorkingPtMv.Y = Y;
-        RoboTestDemo.Moveto(WorkingPtMv);
-        RoboTestDemo.MotoMoveServoFin();
-        CurrentX = X;
-        CurrentY = Y;
-        Current.X = CurrentX;  //Used by line.  Need to consolidate.
-        Current.Y = CurrentY;  //Used by line.  Need to consolidate.
+        switch (isWriting) {
+        case 1:
+            isWriting = RoboTestDemo.penUp();
+            break;
+        case 0:
+            isWriting = RoboTestDemo.penDown();
+            break;
+        }
         break;
 
     case '1': //call line class and populate the Gcommand in the class
@@ -125,7 +120,7 @@ void Parse::getGODE()
 //#include "RobotMotion2023.h"
 #include "Parse.h"
 using namespace std;
-
+/*
 int main()
 {
     Parse DataIn("test1.txt");
@@ -200,6 +195,7 @@ int main()
     //RoboTestDemo.Moveto('2', XYPairh, IJPair); //G02
     //system("pause");
     //RoboTestDemo.Moveto('2', XYArc2, IJPair2); //G02
-    //system("pause");    */
+    //system("pause");   *\
     return 0;
 }
+*/

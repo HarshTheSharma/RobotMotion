@@ -19,7 +19,7 @@ class circle
       double test = 0.0;
       int counter = 0;
    public:
-      XYPoint WorkingPtMv = { 0,0 };  //Combine with PointXY 
+      PointXY WorkingPtMv = { 0,0 };  //Combine with PointXY 
 	  double getAngle1(){return Angle1;}              //Return Angle1
       double getAngle2(){return Angle2;}              //Return Angle2
       double getStep(){return Step;}                  //Return UnitStep
